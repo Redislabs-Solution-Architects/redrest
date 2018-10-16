@@ -9,7 +9,7 @@ java -jar redrest-0.0.1-SNAPSHOT.jar
 | Property      | Description           | Default  |
 | ------------- |-----------------------| -----|
 | server.port | Web server port | 8080 |
-| spring.redis.host | Redis Enterprise database endpoint, e.g. redis-12000.example.com | localhost |
+| spring.redis.host | Redis Enterprise database endpoint | localhost |
 | spring.redis.port | Redis Enterprise database port | 6379 |
 
 ## API
