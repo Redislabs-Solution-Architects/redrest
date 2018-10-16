@@ -1,3 +1,7 @@
+## Download
+
+[redrest-0.0.1-SNAPSHOT.jar](redrest-0.0.1-SNAPSHOT.jar)
+
 ## Running the API server
 
 ```sh
