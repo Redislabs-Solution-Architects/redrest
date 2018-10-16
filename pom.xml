@@ -25,6 +25,19 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<scm>
+		<developerConnection>scm:git:ssh://github.com/Redislabs-Solution-Architects/redrest.git</developerConnection>
+		<url>https://github.com/Redislabs-Solution-Architects/redrest</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>site</id>
+			<url>scm:git:jruaux@github.com:Redislabs-Solution-Architects/redrest.git</url>
+		</site>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -120,6 +133,22 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<releaseProfiles>release</releaseProfiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<scmBranch>gh-pages</scmBranch>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
