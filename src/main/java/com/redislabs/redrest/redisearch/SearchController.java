@@ -81,7 +81,7 @@ public class SearchController {
 			q.setVerbatim();
 		}
 		if (search.isWithPayloads()) {
-			q.setWithPaload();
+			q.setWithPayload();
 		}
 		if (search.isWithScores()) {
 			q.setWithScores();

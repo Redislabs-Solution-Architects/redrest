@@ -1,5 +1,6 @@
 package com.redislabs.redrest.redisearch;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -41,7 +42,9 @@ public class RediSearchTemplate {
 			result.setPayload(doc.getPayload());
 		}
 		result.setScore(doc.getScore());
-		result.setFields(doc.getProperties());
+		Map<String, Object> fields = new HashMap<>();
+		doc.getProperties().forEach(entry -> fields.put(entry.getKey(), entry.getValue()));
+		result.setFields(fields);
 		return result;
 	}
 
@@ -95,15 +98,8 @@ public class RediSearchTemplate {
 	}
 
 	private io.redisearch.Document getDocument(Document document) {
-		io.redisearch.Document doc = new io.redisearch.Document(document.getId());
-		if (document.getScore() != null) {
-			doc.setScore(document.getScore().floatValue());
-		}
-		if (document.getPayload() != null) {
-			doc.setPayload(document.getPayload());
-		}
-		doc.setProperties(document.getFields());
-		return doc;
+		return new io.redisearch.Document(document.getId(), document.getFields(), document.getScore(),
+				document.getPayload());
 	}
 
 	private io.redisearch.client.AddOptions getOptions(AddDocumentOptions addOptions) {
