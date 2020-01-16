@@ -1,8 +1,10 @@
 package com.redislabs.redrest.redisearch;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class Search {
 	private String query;
 	private int offset;

@@ -1,4 +1,4 @@
-package com.redislabs.redrest.redis;
+package com.redislabs.redrest;
 
 import java.util.Collection;
 import java.util.List;
